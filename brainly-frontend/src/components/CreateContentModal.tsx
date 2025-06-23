@@ -8,7 +8,7 @@ import { BACKEND_URL } from "../config";
 enum ContentType {
   Youtube = "youtube",
   Twitter = "twitter",
-  Linkdin = "linkdIn",
+  Linkdin = "linkdin",
 }
 
 interface Tag {
@@ -102,7 +102,7 @@ export function CreateContentModal({ open, onClose }: any) {
               Add Content
             </h2>
             <p className="text-sm text-gray-500 mt-1">
-              Share something interesting with your small brain 🧠
+              Share something interesting with your brain
             </p>
           </div>
           <button
