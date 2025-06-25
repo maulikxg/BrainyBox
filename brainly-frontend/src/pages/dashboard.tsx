@@ -17,7 +17,6 @@ export function Dashboard() {
   const [searchTerm, setSearchTerm] = useState(""); // State for search term from Input
   const [searchResults, setSearchResults] = useState([]); // State for search results In DB
   const [isSearching, setIsSearching] = useState(false); // State for search status
-  const [searchType, setSearchType] = useState("all"); // State for search type
   const [searchError, setSearchError] = useState(""); // State for search errors
 
   const debouncedSearchTerm = useDebounce(searchTerm, 300);

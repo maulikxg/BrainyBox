@@ -1,5 +1,3 @@
-import { Button } from "../components/Button";
-import { Input } from "../components/Input";
 import { useRef } from "react";
 import axios from "axios";
 import { BACKEND_URL } from "../config";
