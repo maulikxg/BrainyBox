@@ -1,6 +1,4 @@
 import { CrossIcon } from "../icons/CrossIcon";
-import { Button } from "./Button";
-import { Input } from "./Input";
 import { useRef, useState } from "react";
 import axios from "axios";
 import { BACKEND_URL } from "../config";
@@ -22,6 +20,15 @@ export function CreateContentModal({ open, onClose }: any) {
   const [type, setType] = useState(ContentType.Youtube);
   const [tags, setTags] = useState<Tag[]>([]);
   const [tagInput, setTagInput] = useState("");
+
+  // Reset form function
+  const resetForm = () => {
+    setTags([]);
+    setTagInput("");
+    setType(ContentType.Youtube);
+    if (titleRef.current) titleRef.current.value = "";
+    if (linkRef.current) linkRef.current.value = "";
+  };
 
   const addTag = () => {
     if (
@@ -67,6 +74,8 @@ export function CreateContentModal({ open, onClose }: any) {
       }
     );
 
+    // Reset form and close modal
+    resetForm();
     onClose();
   }
 
@@ -90,7 +99,10 @@ export function CreateContentModal({ open, onClose }: any) {
       {/* Backdrop */}
       <div
         className="absolute inset-0 bg-black/60 backdrop-blur-sm"
-        onClick={onClose}
+        onClick={() => {
+          resetForm();
+          onClose();
+        }}
       />
 
       {/* Modal */}
@@ -106,7 +118,10 @@ export function CreateContentModal({ open, onClose }: any) {
             </p>
           </div>
           <button
-            onClick={onClose}
+            onClick={() => {
+              resetForm();
+              onClose();
+            }}
             className="p-2 rounded-full hover:bg-gray-100 transition-colors duration-200 group"
           >
             <CrossIcon />
@@ -217,7 +232,10 @@ export function CreateContentModal({ open, onClose }: any) {
         {/* Footer */}
         <div className="flex justify-end gap-3 p-6 border-t border-gray-100 bg-gray-50 rounded-b-2xl">
           <button
-            onClick={onClose}
+            onClick={() => {
+              resetForm();
+              onClose();
+            }}
             className="px-6 py-2.5 text-gray-600 font-medium rounded-lg hover:bg-gray-200 transition-colors duration-200"
           >
             Cancel

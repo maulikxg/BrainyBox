@@ -17,7 +17,7 @@ export function Signup() {
 
     await axios.post(`${BACKEND_URL}/api/v1/signup`, { username, password });
 
-    navigate("/signin");
+    navigate("/");
   }
 
   return (
@@ -108,7 +108,7 @@ export function Signup() {
             <p className="text-gray-300">
               Already have an account?{" "}
               <button
-                onClick={() => navigate("/signin")}
+                onClick={() => navigate("/")}
                 className="text-purple-400 hover:text-purple-300 font-medium transition-colors duration-200"
               >
                 Sign in
